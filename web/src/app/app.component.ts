@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from "@angular/core";
+import {Component, ElementRef, OnDestroy, ViewChild} from "@angular/core";
 import { AudioRecordingService } from "./service/audio-recording.service";
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -8,6 +8,8 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["app.component.scss"]
 })
 export class AppComponent implements OnDestroy {
+  @ViewChild('canvas') canvas: ElementRef<HTMLCanvasElement>;
+
   isRecording = false;
   recordedTime: any;
   blobUrl;
@@ -32,9 +34,10 @@ export class AppComponent implements OnDestroy {
   }
 
   startRecording() {
+
     if (!this.isRecording) {
       this.isRecording = true;
-      this.audioRecordingService.startRecording();
+      this.audioRecordingService.startRecording(this.canvas);
     }
   }
 

@@ -1,4 +1,10 @@
+
+
+
 <div class="container">
+
+  <canvas #canvas></canvas>
+
   <button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
 
   <button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
@@ -9,9 +15,14 @@
   <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="download()">Download Recording</button>
 
   <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+
   <div>
     <audio *ngIf="!isRecording && blobUrl" controls>
       <source [src]="blobUrl" type="audio/webm">
     </audio>
   </div>
 </div>
+
+
+
+

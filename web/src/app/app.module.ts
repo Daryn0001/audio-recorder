@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {AudioRecordingService} from "./service/audio-recording.service";
 
 @NgModule({
@@ -9,7 +9,8 @@ import {AudioRecordingService} from "./service/audio-recording.service";
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
   ],
   providers: [AudioRecordingService],
   bootstrap: [AppComponent]
